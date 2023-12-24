@@ -13,10 +13,10 @@ function singleRound(playerSelection, computerSelection){
             result = "Tie";
         }
         else if(computerSelection.toLowerCase() === "paper"){
-            result = "You win! Paper beats Rock";
+            result = "You Lose! Paper beats Rock";
         }
         else{
-            result = "You Lose! Rock beats Scissors";
+            result = "You Win! Rock beats Scissors";
         }
     }
     else if(playerSelection.toLowerCase() === "paper"){
@@ -35,7 +35,7 @@ function singleRound(playerSelection, computerSelection){
             result = "You Lose! Rock beats Scissors"
         }
         else if(computerSelection.toLowerCase() === "paper"){
-            result = "You Win! Scissors beats Paer";
+            result = "You Win! Scissors beats Paper";
         }
         else{
             result = "Tie";
@@ -49,19 +49,26 @@ function game(){
     var user = 0;
     var computer = 0;
     var message = "";
-    while(count != 5){
+    while(user !== 5 && computer !== 5){
         console.log(`ROUND: ${count}`);
-        var userOption = prompt("Enter Rock, Paper or Scissors:").trim().toLowerCase();
+        var userOption = prompt("Enter Rock, Paper or Scissors:").trim();
         if(userOption === "rock" || userOption === "paper" || userOption === "scissors"){
-            message = singleRound(user, getComputerChoice());
+            let computerOption =getComputerChoice();
+            message = singleRound(userOption, computerOption);
+            
+            console.log("Your option: " + userOption);
+            console.log("Computer Option: " + computerOption)
+            
             if(message === 'Tie'){
-
+                console.log(message + ". Try again");
             }
             else if(message[4] === 'L'){
+                console.log(message);
                 computer++;
                 count++;
             }
             else{
+                console.log(message);
                 user++;
                 count++;
             }
@@ -72,21 +79,12 @@ function game(){
             userOption = prompt("Enter rock, paper or scissors");
         }
     }
-    alert("Computer Score " + computer);
-    alert("User Score: " + user);
+    console.log("RESULTS");
+    console.log("User score: " + user);
+    console.log("Computer score: " + computer);
 }
 game();
-// var res = singleRound("rock", "rock") + "\n";
-// res += singleRound("rock", "paper")+ "\n";
-// res += singleRound("rock", "scissors")+ "\n";
 
-// res += singleRound("paper", "rock")+ "\n";
-// res += singleRound("paper", "paper")+ "\n";
-// res += singleRound("paper", "scissors"+ "\n");
-
-// res += singleRound("scissors", "rock")+ "\n";
-// res += singleRound("scissors", "paper")+ "\n";
-// res += singleRound("scissors", "scissors")+ "\n";
 
 
 
