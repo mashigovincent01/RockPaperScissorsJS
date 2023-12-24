@@ -44,6 +44,38 @@ function singleRound(playerSelection, computerSelection){
     return result;
 }
 
+function game(){
+    var count = 0;
+    var user = 0;
+    var computer = 0;
+    var message = "";
+    while(count != 5){
+        console.log(`ROUND: ${count}`);
+        var userOption = prompt("Enter Rock, Paper or Scissors:").trim().toLowerCase();
+        if(userOption === "rock" || userOption === "paper" || userOption === "scissors"){
+            message = singleRound(user, getComputerChoice());
+            if(message === 'Tie'){
+
+            }
+            else if(message[4] === 'L'){
+                computer++;
+                count++;
+            }
+            else{
+                user++;
+                count++;
+            }
+            
+        }
+        else{
+            alert("Invalid input, must be rock, paper or scissors");
+            userOption = prompt("Enter rock, paper or scissors");
+        }
+    }
+    alert("Computer Score " + computer);
+    alert("User Score: " + user);
+}
+game();
 // var res = singleRound("rock", "rock") + "\n";
 // res += singleRound("rock", "paper")+ "\n";
 // res += singleRound("rock", "scissors")+ "\n";
