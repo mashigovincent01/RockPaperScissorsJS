@@ -1,4 +1,5 @@
 
+
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random()*3);
     const choices = ["Rock", "Paper", "Scissors"];
@@ -44,47 +45,35 @@ function singleRound(playerSelection, computerSelection){
     return result;
 }
 
-function game(){
-    var count = 0;
-    var user = 0;
-    var computer = 0;
-    var message = "";
-    while(user !== 5 && computer !== 5){
-        console.log(`ROUND: ${count}`);
-        var userOption = prompt("Enter Rock, Paper or Scissors:").trim();
-        if(userOption === "rock" || userOption === "paper" || userOption === "scissors"){
-            let computerOption =getComputerChoice();
-            message = singleRound(userOption, computerOption);
-            
-            console.log("Your option: " + userOption);
-            console.log("Computer Option: " + computerOption)
-            
-            if(message === 'Tie'){
-                console.log(message + ". Try again");
-            }
-            else if(message[4] === 'L'){
-                console.log(message);
-                computer++;
-                count++;
-            }
-            else{
-                console.log(message);
-                user++;
-                count++;
-            }
-            
-        }
-        else{
-            alert("Invalid input, must be rock, paper or scissors");
-            userOption = prompt("Enter rock, paper or scissors");
-        }
-    }
-    console.log("RESULTS");
-    console.log("User score: " + user);
-    console.log("Computer score: " + computer);
-}
-game();
+var userScore = 0;
+var computerScore = 0;
 
+document.querySelector("#rock").addEventListener("click", ()=>{
+   var result = singleRound("rock", getComputerChoice());
+    document.querySelector("#result").innerHTML = result;
+});
+
+document.querySelector("#paper").addEventListener("click", ()=>{
+    var result = singleRound("paper", getComputerChoice());
+    document.querySelector("#result").innerHTML = result;
+});
+
+document.querySelector("#scissors").addEventListener("click", ()=>{
+    var result = singleRound("scissors", getComputerChoice());
+    document.querySelector("#result").innerHTML = result;
+});
+
+function updateScore(res){
+    if(res === 'Tie'){
+        return;
+    }
+    if(res[4] === 'L'){
+        computerScore++;
+    }
+    else{
+        userScore++;
+    }
+}
 
 
 
