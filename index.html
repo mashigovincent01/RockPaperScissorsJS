@@ -4,14 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Basic Rock Paper Scissors Game</h1>
-    <h2>Click one of the following button to play</h2>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <div id="result"></div>
+    <section>
+        <h1>Basic Rock Paper Scissors Game</h1>
+        
+
+        <div id="score-container">
+            <div class="score">Your Score: <span id="userScore">0</span></div>
+            <div class="score">Computer Score: <span id="computerScore">0</span></div>
+        </div>
+        <h2 style="text-align: center; padding: 20px;">Click one of the following button to play</h2>
+        <div id="user-choice-container">
+            <button id="rock">✊</button>
+            <button id="paper">✋</button>
+            <button id="scissors">✌️</button>
+        </div>
+        <h2 style="text-align: center; padding-top: 40px">Results</h2>
+        <div id="choice-container">
+            <div class="choice">
+                <p style="font-weight: bold;">Your Choice</p>
+                <div id="user-choice"></div>
+                
+            </div>
+            <div class="choice">
+                <p style="font-weight: bold;">Computer Choice</p>
+                <div id="computer-choice"></div>
+                
+            </div>
+        </div>
+        <h2 id="result" style="text-align: center;">
+        </h2>
+
+    </section>
+    <footer>
+        By Mashigo Vincent &copy;2023
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
